@@ -1,0 +1,8 @@
+# Some useless zsh files
+/zsh/.zcompdump
+
+# Zsh plugins
+/zsh/plugins/
+
+# Neovim packer compiled file
+/nvim/plugin/
