@@ -65,6 +65,7 @@ RPROMPT="%(?.%F{$CHECK}.%F{$CROSS})"
 # Aliases
 alias ls="ls --color"
 alias src="exec zsh"
+alias keys="xev | awk -F'[ )]+' '/^KeyPress/ { a[NR+2] } NR in a { printf \"%-3s %s\n\", $5, $8 }'"
 
 # fzf
 export FZF_DEFAULT_COMMAND='fd --no-ignore --hidden --type f'

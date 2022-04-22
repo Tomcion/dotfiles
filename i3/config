@@ -90,7 +90,7 @@ bindsym $mod+u split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (tabbed, toggle split, no stacked coz its just a shitty version of tabbed)
-bindsym $mod+w layout tabbed
+bindsym $mod+w layout toggle tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
@@ -189,5 +189,5 @@ bindsym $mod+r mode "resize"
 
 for_window [class=".*"] border pixel 0
 
-gaps inner 18
+gaps inner 10
 

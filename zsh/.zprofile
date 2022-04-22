@@ -1,1 +1,1 @@
-startx
+startx $XINITRC

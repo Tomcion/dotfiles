@@ -1,0 +1,7 @@
+! Making Left Alt work like the Right Alt for creating all those funny Polish letters
+clear Mod1
+clear Mod5
+keycode 64 = ISO_Level3_Shift Mode_switch
+!keysym Alt_L = Mode_switch ISO_Level3_Shift
+add Mod1 = Meta_L
+add Mod5 = ISO_Level3_Shift Mode_switch Alt_L
