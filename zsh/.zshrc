@@ -46,26 +46,22 @@ done
 
 # Nice prompt
 
-# USER_C=221
-# HOST_C=216
-# BRACKET=167
-# WHITE=15
 PATH_C=181
 
 autoload -U colors
 colors
 
-PROMPT="%F{red}[%F{yellow}%n%F{red}@%F{magenta}%m %F{$PATH_C}%3~%F{red}]%# %F{$reset_color}"
+PROMPT="%F{blue}[%F{reset_color}%n%F{magenta}@%F{reset_color}%m %F{magenta}%3~%F{blue}]%# %F{$reset_color}"
 
 CHECK=70
 CROSS=124
 
-RPROMPT="%(?.%F{$CHECK}.%F{$CROSS})"
+RPROMPT="%(?..%F{$CROSS})"
 
 # Aliases
 alias ls="ls --color"
 alias src="exec zsh"
-alias keys="xev | awk -F'[ )]+' '/^KeyPress/ { a[NR+2] } NR in a { printf \"%-3s %s\n\", $5, $8 }'"
+alias ef='nvim $(fzf)'
 
 # fzf
 export FZF_DEFAULT_COMMAND='fd --no-ignore --hidden --type f'
@@ -77,4 +73,4 @@ source /usr/share/fzf/key-bindings.zsh
 source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Neofetch
-neofetch --colors 3 7 7 3 7 --ascii_colors 3 3
+neofetch 

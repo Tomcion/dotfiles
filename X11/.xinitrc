@@ -20,7 +20,7 @@ fi
 killall -q polybar
 polybar &
 
-feh --bg-fill ~/.local/share/wallpapers/desert.jpg
+feh --bg-fill ~/.local/share/wallpapers/road.jpg
 
 dunst &
 

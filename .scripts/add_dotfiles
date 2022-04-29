@@ -1,0 +1,10 @@
+#!/bin/sh
+
+fullpath=$(realpath $1)
+filename=$(basename $fullpath)
+
+dotfiles_dir="$HOME/.dotfiles/"
+
+mv $fullpath $dotfiles_dir
+
+ln -s "${dotfiles_dir}${filename}" $fullpath

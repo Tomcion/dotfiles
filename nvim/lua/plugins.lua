@@ -25,6 +25,7 @@ return require('packer').startup(function(use)
     use 'NLKNguyen/papercolor-theme'
     use 'folke/tokyonight.nvim'
     use 'shaunsingh/nord.nvim'
+    use 'jacoborus/tender.vim'
 
     -- Status line
     use {

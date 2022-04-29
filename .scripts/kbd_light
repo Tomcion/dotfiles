@@ -1,0 +1,42 @@
+#!/bin/sh
+
+backlight_dir=/sys/class/leds/smc::kbd_backlight/
+max_brightess=$(cat "${backlight_dir}max_brightness")
+
+cur_brightness=$(cat "${backlight_dir}brightness")
+
+increment=$(($max_brightess / 10))
+
+set_brightness ()
+{
+    echo $cur_brightness > "${backlight_dir}brightness"
+}
+
+up ()
+{
+    cur_brightness=$((cur_brightness + increment))
+    if [ $cur_brightness -gt $max_brightess ]; then 
+        cur_brightness=$max_brightess
+    fi
+    set_brightness
+}
+
+down ()
+{
+    cur_brightness=$((cur_brightness - increment))
+    if [ 0 -gt $cur_brightness ]; then
+        cur_brightness=0
+    fi
+    set_brightness
+}
+
+while [ -n "$1" ]; do
+    case "$1" in
+        -u)
+            up
+            exit;;
+        -d)
+            down
+            exit;;
+    esac
+done

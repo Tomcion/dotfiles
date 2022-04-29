@@ -1,4 +1,4 @@
-local dark_theme = "gruvbox"
+local dark_theme = "tender"
 local light_theme = "PaperColor"
 
 vim.g.tokyonight_style = "storm"
