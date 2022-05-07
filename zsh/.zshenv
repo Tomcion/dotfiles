@@ -10,3 +10,4 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 export XINITRC="$XDG_CONFIG_HOME/X11/.xinitrc"
 
+export RANGER_LOAD_DEFAULT_RC="false"

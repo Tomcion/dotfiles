@@ -51,7 +51,7 @@ PATH_C=181
 autoload -U colors
 colors
 
-PROMPT="%F{blue}[%F{reset_color}%n%F{magenta}@%F{reset_color}%m %F{magenta}%3~%F{blue}]%# %F{$reset_color}"
+PROMPT="%F{blue}[%F{reset_color}%n%F{magenta}@%F{reset_color}%m %F{magenta}%1~%F{blue}]%# %F{$reset_color}"
 
 CHECK=70
 CROSS=124
@@ -61,7 +61,9 @@ RPROMPT="%(?..%F{$CROSS})"
 # Aliases
 alias ls="ls --color"
 alias src="exec zsh"
+
 alias ef='nvim $(fzf)'
+alias cdf='cd $(dirname $(fzf))'
 
 # fzf
 export FZF_DEFAULT_COMMAND='fd --no-ignore --hidden --type f'
