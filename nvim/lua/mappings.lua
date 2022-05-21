@@ -15,10 +15,6 @@ map.n('<c-h>', '<c-w>h')
 map.n('<c-Up>', '<c-w>+') map.n('<c-Down>', '<c-w>-') map.n('<c-Right>', '2<c-w>>')
 map.n('<c-Left>', '2<c-w><')
 
--- Editing and sourcing vimrcs
-map.n('<leader>vc', ':vsplit $MYVIMRC<cr>')
-map.n('<leader>sv', ':source $MYVIMRC<cr>')
-
 -- Keep blocks selected after tabbing
 map.v('<', '<gv')
 map.v('>', '>gv')
@@ -32,6 +28,9 @@ map.n('Y', 'y$')
 
 -- Get the word count of the current file
 map.n('<leader>wc', ':!wc -w %<cr>')
+
+-- Remove whitespace lines
+map.n('<leader>ws', ":%s/^\\s\\+$//gc<cr>")
 
 -- Toggle wrap and linebreak
 LineBrOn = false

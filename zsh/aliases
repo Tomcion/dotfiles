@@ -1,0 +1,8 @@
+#!/bin/sh
+
+alias ls="ls --color"
+alias src="exec zsh"
+
+alias ef='nvim $(fzf)'
+alias cdf='cd $(dirname $(fzf))'
+

@@ -15,6 +15,7 @@ return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
 
     use 'mbbill/undotree'
+    use 'unblevable/quick-scope'
 
     -- NERDTree
     use 'preservim/nerdtree'

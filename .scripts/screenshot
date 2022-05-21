@@ -1,0 +1,3 @@
+#!/bin/bash
+
+maim ~/Downloads/screenshots/$(date +%Y_%m_%d-%H:%M:%S)-screenshot.png

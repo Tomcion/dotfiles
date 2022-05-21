@@ -29,8 +29,8 @@ bindsym XF86MonBrightnessUp exec light -A 10
 bindsym XF86MonBrightnessDown exec light -U 10
 
 # Keyboard backlight
-bindsym XF86KbdBrightnessUp exec --no-startup-id kbd_light -u
-bindsym XF86KbdBrightnessDown exec --no-startup-id kbd_light -d
+bindsym XF86KbdBrightnessUp exec kbd_light -u
+bindsym XF86KbdBrightnessDown exec kbd_light -d
 
 # Take a screenshot
 bindsym $mod+Shift+s exec --no-startup-id maim ~/Downloads/screenshots/$(date +%Y_%m_%d-%H:%M:%S)-screenshot.png

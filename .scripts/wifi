@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# Realoading the wifi drivers
+
+sudo modprobe -r brcmfmac
+sudo modprobe brcmfmac

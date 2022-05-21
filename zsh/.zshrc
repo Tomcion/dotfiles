@@ -59,11 +59,7 @@ CROSS=124
 RPROMPT="%(?..%F{$CROSS})"
 
 # Aliases
-alias ls="ls --color"
-alias src="exec zsh"
-
-alias ef='nvim $(fzf)'
-alias cdf='cd $(dirname $(fzf))'
+source "$ZDOTDIR/aliases"
 
 # fzf
 export FZF_DEFAULT_COMMAND='fd --no-ignore --hidden --type f'

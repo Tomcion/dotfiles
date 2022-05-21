@@ -1,0 +1,23 @@
+#!/bin/sh 
+
+clock() {
+    date +%R
+}
+
+battery() {
+    bat_stat=$(acpi -b | sed 's/,//g' | awk '{print $4}')
+    bat_amnt=$(echo $bat_stat | sed 's/%//')
+
+    low_bat="10"
+
+    if [ "$bat_amnt" -le "$low_bat" ]; then
+        notify-send "Low battery bro" -u critical
+    fi
+
+    echo " $bat_stat"
+}
+
+while true; do
+    xsetroot -name "$(clock) | $(battery)"
+    sleep 10s
+done &
