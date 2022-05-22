@@ -1,8 +1,39 @@
 #!/bin/sh
 
-alias ls="ls --color"
-alias src="exec zsh"
+#
+# Convenience functions
+#
 
-alias ef='nvim $(fzf)'
-alias cdf='cd $(dirname $(fzf))'
+alias src='exec zsh'
+alias untar='tar -xzvf'
+alias fehopen='feh --scale-down --auto-zoom --image-bg black'
+
+#
+# Setting some defaults
+#
+
+alias ls='ls --color'
+alias mv='mv -i'
+alias cp='cp -i'
+alias ln='ln -i'
+
+#
+# Some fzf fun stuff
+#
+
+# Opening a file in the home dir from anywhere
+alias eh='nvim $(cd $HOME && echo $(realpath $(fzf)))'
+# Same but in the config folder
+alias ec='nvim $(cd $XDG_CONFIG_HOME && echo $(realpath $(fzf)))'
+# Same but with pdf's
+alias book='zathura $(cd $HOME/Desktop/books && echo $(realpath $(fzf)))'
+# Same but with pictures
+alias pic='feh --scale-down --auto-zoom --image-bg black $(cd $HOME/Desktop/Pictures && echo $(realpath $(fzf)))'
+
+#
+# Opening some specific files
+#
+
+alias aliases='nvim $XDG_CONFIG_HOME/zsh/aliases'
+alias nconf='cd $XDG_CONFIG_HOME/nvim && nvim'
 

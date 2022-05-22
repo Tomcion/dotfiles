@@ -77,3 +77,6 @@ map.n('<leader>tr', ':belowright new<cr>:terminal<cr>')
 map.n('<leader>T', ':tabedit new<cr>:terminal<cr>')
 map.t('jk', '<c-\\><c-n>')
 
+-- NERDTree
+map.n("<C-n>", ":NERDTreeToggle<cr>")
+map.n("<leader>n", ":NERDTreeFocus<cr>")
