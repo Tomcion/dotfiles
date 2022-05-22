@@ -28,7 +28,7 @@ alias ec='nvim $(cd $XDG_CONFIG_HOME && echo $(realpath $(fzf)))'
 # Same but with pdf's
 alias book='zathura $(cd $HOME/Desktop/books && echo $(realpath $(fzf)))'
 # Same but with pictures
-alias pic='feh --scale-down --auto-zoom --image-bg black $(cd $HOME/Desktop/Pictures && echo $(realpath $(fzf)))'
+alias pic='feh --scale-down --auto-zoom --image-bg black $(cd $HOME/Pictures && echo $(realpath $(fzf)))'
 
 #
 # Opening some specific files
