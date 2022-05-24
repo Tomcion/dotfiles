@@ -11,3 +11,5 @@ export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 export XINITRC="$XDG_CONFIG_HOME/X11/.xinitrc"
 
 export RANGER_LOAD_DEFAULT_RC="false"
+
+export QT_QPA_PLATFORMTHEME=qt5ct

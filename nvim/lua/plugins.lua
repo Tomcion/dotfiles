@@ -16,6 +16,7 @@ return require('packer').startup(function(use)
 
     use 'mbbill/undotree'
     use 'unblevable/quick-scope'
+    use 'ap/vim-css-color'
 
     -- NERDTree
     use 'preservim/nerdtree'
