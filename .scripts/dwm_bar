@@ -11,13 +11,13 @@ battery() {
     low_bat="10"
 
     state=$(acpi -b | sed 's/,//g' | awk '{print $3}')
-    state_icon=""
+    state_icon=" "
 
-    if [ "$state" = "Charging" ]; then
+    if [ "$state" != "Charging" ]; then
         if [ "$bat_amnt" -le "$low_bat" ]; then
             notify-send "Low battery bro" -u critical
         fi
-        state_icon=" "
+        state_icon=""
     fi
 
     bat1="95"
