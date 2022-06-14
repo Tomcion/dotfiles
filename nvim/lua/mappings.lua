@@ -32,6 +32,9 @@ map.n('<leader>wc', ':!wc -w %<cr>')
 -- Remove whitespace lines
 map.n('<leader>ws', ":%s/^\\s\\+$//gc<cr>")
 
+-- Ctrl delete in insert mode (I know)
+map.i('<C-BS>', "<c-o>db")
+
 -- Toggle wrap and linebreak
 LineBrOn = false
 

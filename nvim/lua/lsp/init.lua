@@ -1,43 +1,43 @@
-require 'lsp.lsp_installer'
+require "lsp.diagnostic"
 
-local signs = {
-    { name = "DiagnosticSignError", text = "" },
-    { name = "DiagnosticSignWarn", text = "" },
-    { name = "DiagnosticSignHint", text = "" },
-    { name = "DiagnosticSignInfo", text = "" },
-}
+local lsp_installer = require("nvim-lsp-installer")
+local lspconfig = require("lspconfig")
 
-for _, sign in ipairs(signs) do
-    vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
+-- setting up nvim-lsp-installer
+lsp_installer.setup {}
+
+local function make_capabilities()
+    local status_ok_2, cmp_nvim_lsp = pcall(require, 'cmp_nvim_lsp')
+    if not status_ok_2 then
+        print 'failed to load cmp_nvim_lsp'
+        return
+    end
+
+    local capabilities = vim.lsp.protocol.make_client_capabilities()
+    local cmp_updated_capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
+
+    return cmp_updated_capabilities
 end
 
-local config = {
-    -- disable virtual text
-    virtual_text = true,
-    -- show signs
-    signs = {
-        active = signs,
-    },
-    update_in_insert = true,
-    underline = true,
-    severity_sort = true,
-    float = {
-        focusable = false,
-        style = "minimal",
-        border = "rounded",
-        source = "always",
-        header = "",
-        prefix = "",
-    },
-}
+-- Getting a list of installed servers from nvim-lsp-installer
+local servers = lsp_installer.get_installed_servers()
 
-vim.diagnostic.config(config)
+for _, server in ipairs(servers) do
+    -- The folder where all of the server-specific additional configs are stored
+    local settings_path = "lsp.settings." .. server.name
+    local add_opts_exist, add_opts = pcall(require, settings_path)
 
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-  border = "rounded",
-})
+    -- Default options for every server
+    local opts = {
+        on_attach = require("lsp.keymaps").set_keymaps,
+        capabilities = make_capabilities(),
+    }
 
-vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-  border = "rounded",
-})
+    -- If additional settings exist, they will be merged with the default ones
+    if (add_opts_exist) then
+        opts = vim.tbl_deep_extend('keep', add_opts, opts)
+    end
 
+    -- Setting up the server
+    lspconfig[server.name].setup(opts)
+end

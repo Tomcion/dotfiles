@@ -3,7 +3,7 @@ require'nvim-treesitter.configs'.setup {
   ensure_installed = {
     "c", "cpp", "make", "cmake", "glsl",
     "lua", "bash", "python", "vim",
-    "html", "css", "javascript",
+    "html", "css", "javascript", "php",
     "latex", "bibtex",
     "toml", "json",
   },
@@ -19,7 +19,7 @@ require'nvim-treesitter.configs'.setup {
     enable = true,
 
     -- list of language that will be disabled
-    disable = { "" },
+    disable = { "php" },
 
     -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
     -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).

@@ -26,10 +26,16 @@ set.cursorline = true
 set.splitright = false
 set.signcolumn = 'no'
 
-vim.cmd [[
-    augroup cursor
-        autocmd!
-        autocmd WinLeave * set nocursorline
-        autocmd WinEnter * set cursorline
-    augroup END
-]]
+vim.api.nvim_create_autocmd("WinLeave", {
+    pattern = "*",
+    callback = function(args)
+        set.cursorline = false
+    end,
+})
+
+vim.api.nvim_create_autocmd("WinEnter", {
+    pattern = "*",
+    callback = function(args)
+        set.cursorline = true
+    end,
+})
