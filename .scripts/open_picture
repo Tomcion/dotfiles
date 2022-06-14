@@ -1,0 +1,11 @@
+#!/bin/sh
+
+prompt="Pictures: "
+pictures_dir="$HOME/Pictures"
+
+cd $pictures_dir
+
+file=$(find * -type f | dmenu -i -p "${prompt}")
+
+feh --scale-down --auto-zoom --image-bg black $file
+
