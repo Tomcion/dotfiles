@@ -1,0 +1,12 @@
+#!/bin/sh
+
+prompt="PDF's: "
+
+cd $HOME
+
+file=$(find * -type f -name "*.pdf" | dmenu -i -p "${prompt}")
+
+if [ $file != "" ]; then
+    zathura $file
+fi
+

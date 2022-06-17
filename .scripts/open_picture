@@ -7,5 +7,7 @@ cd $pictures_dir
 
 file=$(find * -type f | dmenu -i -p "${prompt}")
 
-feh --scale-down --auto-zoom --image-bg black $file
+if [ $file != "" ]; then
+    feh --scale-down --auto-zoom --image-bg black $file
+fi
 
