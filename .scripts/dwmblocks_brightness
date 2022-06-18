@@ -1,0 +1,16 @@
+#!/bin/sh
+
+bright_up() {
+    light -A 10
+}
+
+bright_down() {
+    light -U 10
+}
+
+case "$1" in
+    up) bright_up;;
+    down) bright_down;;
+esac
+
+pkill -RTMIN+11 dwmblocks

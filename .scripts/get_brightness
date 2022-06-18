@@ -1,0 +1,12 @@
+#!/bin/sh
+
+dir="/sys/class/backlight/intel_backlight/"
+
+max_bright=$(cat "${dir}max_brightness")
+brightness=$(cat "${dir}brightness")
+
+rel_brightness=$(( ($brightness * 100) / $max_bright ))
+
+icon=""
+
+echo "${icon} ${rel_brightness}%"

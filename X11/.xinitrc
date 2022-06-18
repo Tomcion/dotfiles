@@ -20,13 +20,18 @@ fi
 #killall -q polybar
 #polybar &
 
-dwm_bar
+#dwm_bar
+dwmblocks &
 
 feh --bg-fill ~/.local/share/wallpapers/desert1.jpg
 
-#dunst &
+dunst &
 
 picom --experimental-backends &
+
+# nm-applet &
+# caprine &
+# discord &
 
 #exec i3
 exec dwm

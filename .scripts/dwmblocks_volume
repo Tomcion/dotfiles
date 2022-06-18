@@ -1,0 +1,21 @@
+#!/bin/sh
+
+vol_up() {
+    pactl set-sink-volume @DEFAULT_SINK@ +5%
+}
+
+vol_down() {
+    pactl set-sink-volume @DEFAULT_SINK@ -5%
+}
+
+tog_mute() {
+    pactl set-sink-mute @DEFAULT_SINK@ toggle
+}
+
+case "$1" in
+    up) vol_up;;
+    down) vol_down;;
+    mute) tog_mute;;
+esac
+
+pkill -RTMIN+10 dwmblocks

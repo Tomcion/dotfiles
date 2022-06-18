@@ -1,0 +1,10 @@
+#!/bin/sh
+
+vol=$(amixer sget Master | grep 'Left:' | awk -F'[][]' '{ print $2 }')
+
+state=$(amixer sget Master | grep 'Left:' | awk -F'[][]' '{ print $4 }')
+
+icon="墳"
+[ $state == "off" ] && icon="ﱝ"
+
+echo "$icon $vol"

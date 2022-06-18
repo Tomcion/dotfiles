@@ -50,3 +50,30 @@ URxvt*boldFont: xft:FONTNAME:size=FONTSIZE:antialias=true:hinting=true:autohint=
 *foreground:    #c5c8c6
 *cursorColor:   #c5c8c6
 
+#define BARFONT Hack Nerd Font:size=10 
+
+#define BG #222222
+#define SELBG #bd7777
+/* #define SELBG #81a2be */
+
+#define FG #bbbbbb
+#define SELFG #222222
+
+dwm.font: BARFONT
+
+dwm.normbgcolor:       BG
+dwm.selbgcolor:        SELBG
+
+dwm.normfgcolor:       FG
+dwm.selfgcolor:        SELFG
+
+dwm.normbordercolor:   #444444
+dwm.selbordercolor:    #005577
+
+dmenu.font: BARFONT
+
+dmenu.background: BG
+dmenu.foreground: FG
+
+dmenu.selbackground: SELBG
+dmenu.selforeground: SELFG
