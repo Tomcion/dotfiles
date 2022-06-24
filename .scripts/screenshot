@@ -1,3 +1,10 @@
-#!/bin/bash
+#!/bin/sh
 
-maim ~/Downloads/screenshots/$(date +%Y_%m_%d-%H:%M:%S)-screenshot.png
+if (
+    maim ~/Pictures/screenshots/$(date +%Y_%m_%d-%H:%M:%S)-screenshot.png
+)
+then
+    notify-send "Screenshot taken bro"
+else
+    notify-send "Failed to take a screenshot :( sry bro"
+fi

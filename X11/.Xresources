@@ -53,8 +53,7 @@ URxvt*boldFont: xft:FONTNAME:size=FONTSIZE:antialias=true:hinting=true:autohint=
 #define BARFONT Hack Nerd Font:size=10 
 
 #define BG #222222
-#define SELBG #bd7777
-/* #define SELBG #81a2be */
+#define SELBG #81a2be
 
 #define FG #bbbbbb
 #define SELFG #222222
