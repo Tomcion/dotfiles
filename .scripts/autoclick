@@ -1,0 +1,12 @@
+#!/bin/sh
+
+location=$(xdotool getmouselocation | head -n 2)
+x=$(echo $location | awk '{print $1}' | sed 's/x://')
+y=$(echo $location | awk '{print $2}' | sed 's/y://')
+
+while true;
+do
+    xdotool mousemove $x $y
+    xdotool click 1
+    sleep 10
+done
