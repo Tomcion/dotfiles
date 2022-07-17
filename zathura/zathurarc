@@ -1,1 +1,5 @@
 set guioptions svh
+set selection-clipboard clipboard
+
+map = zoom in
+map + zoom
