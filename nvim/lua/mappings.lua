@@ -12,7 +12,9 @@ map.n('<c-l>', '<c-w>l')
 map.n('<c-h>', '<c-w>h')
 
 -- Window resizing
-map.n('<c-Up>', '<c-w>+') map.n('<c-Down>', '<c-w>-') map.n('<c-Right>', '2<c-w>>')
+map.n('<c-Up>', '<c-w>+')
+map.n('<c-Down>', '<c-w>-')
+map.n('<c-Right>', '2<c-w>>')
 map.n('<c-Left>', '2<c-w><')
 
 -- Keep blocks selected after tabbing
@@ -65,7 +67,7 @@ map.n('<leader>[', 'viw<esc>a]<esc>bi[<esc>el')
 map.n('<leader>(', 'viw<esc>a)<esc>bi(<esc>el')
 
 -- Comment out the current line
-vim.cmd[[
+vim.cmd [[
     augroup commenting_out
         autocmd!
         autocmd BufNewFile,BufRead * nnoremap <leader>c mc0i// <esc>`clll
@@ -79,7 +81,3 @@ vim.cmd[[
 map.n('<leader>tr', ':belowright new<cr>:terminal<cr>')
 map.n('<leader>T', ':tabedit new<cr>:terminal<cr>')
 map.t('jk', '<c-\\><c-n>')
-
--- NERDTree
-map.n("<C-n>", ":NERDTreeToggle<cr>")
-map.n("<leader>n", ":NERDTreeFocus<cr>")

@@ -1,10 +1,11 @@
 local fn = vim.fn
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
-  packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+    packer_bootstrap = fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim',
+        install_path })
 end
 
-vim.cmd[[
+vim.cmd [[
   augroup packer_user_config
     autocmd!
     autocmd BufWritePost plugins.lua source <afile> | PackerCompile
@@ -18,10 +19,7 @@ return require('packer').startup(function(use)
     use 'unblevable/quick-scope'
     use 'ap/vim-css-color'
     use 'tpope/vim-commentary'
-
-    -- NERDTree
-    use 'preservim/nerdtree'
-    use 'ryanoasis/vim-devicons'
+    use 'mattn/emmet-vim'
 
     -- Color schemes
     use 'morhetz/gruvbox'
@@ -30,10 +28,20 @@ return require('packer').startup(function(use)
     use 'shaunsingh/nord.nvim'
     use 'jacoborus/tender.vim'
 
+    use 'sheerun/vim-polyglot'
+
     -- Status line
     use {
-      'nvim-lualine/lualine.nvim',
-      requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+        'nvim-lualine/lualine.nvim',
+        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    }
+
+    -- Nvim tree
+    use {
+        'kyazdani42/nvim-tree.lua',
+        requires = {
+            'kyazdani42/nvim-web-devicons',
+        },
     }
 
     -- Autocompletion
@@ -62,8 +70,6 @@ return require('packer').startup(function(use)
     -- Telescope
     use {
         'nvim-telescope/telescope.nvim',
-        requires = {'nvim-lua/plenary.nvim'}
+        requires = { 'nvim-lua/plenary.nvim' }
     }
 end)
-
-

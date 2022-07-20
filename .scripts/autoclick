@@ -6,7 +6,11 @@ y=$(echo $location | awk '{print $2}' | sed 's/y://')
 
 while true;
 do
+    prev_location=$(xdotool getmouselocation | head -n 2)
     xdotool mousemove $x $y
     xdotool click 1
+    prev_x=$(echo $prev_location | awk '{print $1}' | sed 's/x://')
+    prev_y=$(echo $prev_location | awk '{print $2}' | sed 's/y://')
+    xdotool mousemove $prev_x $prev_y
     sleep 10
 done
