@@ -17,10 +17,10 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
     unset f
 fi
 
-#killall -q polybar
-#polybar &
+# killall -q polybar
+# polybar &
 
-#dwm_bar
+# dwm_bar
 dwmblocks &
 
 feh --bg-fill ~/.local/share/wallpapers/desert1.jpg
@@ -33,6 +33,7 @@ picom --experimental-backends &
 # caprine &
 # discord &
 
-#exec i3
+# exec i3
 exec dwm
+# exec bspwm
 

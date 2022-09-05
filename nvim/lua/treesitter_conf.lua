@@ -4,6 +4,7 @@ require'nvim-treesitter.configs'.setup {
     "c", "cpp", "make", "cmake", "glsl",
     "lua", "bash", "python", "vim",
     "html", "css", "javascript", "php",
+    "svelte",
     "latex", "bibtex",
     "toml", "json",
   },

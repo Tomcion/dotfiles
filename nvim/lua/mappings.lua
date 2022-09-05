@@ -35,9 +35,9 @@ map.n('<leader>wc', ':!wc -w %<cr>')
 map.n('<leader>ws', ":%s/^\\s\\+$//gc<cr>")
 
 -- Ctrl delete in insert mode (I know)
-map.i('<C-BS>', "<c-o>db")
+-- map.i('<c-BS>', "<c-o>db")
 
--- Toggle wrap and linebreak
+-- Toggle wrap and line
 LineBrOn = false
 
 function ToggleLineBr()

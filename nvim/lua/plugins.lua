@@ -15,11 +15,15 @@ vim.cmd [[
 return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
 
+    -- Some random stuff
+    use 'sheerun/vim-polyglot'
     use 'mbbill/undotree'
     use 'unblevable/quick-scope'
     use 'ap/vim-css-color'
     use 'tpope/vim-commentary'
     use 'mattn/emmet-vim'
+    use 'tpope/vim-surround'
+    use 'tpope/vim-repeat'
 
     -- Color schemes
     use 'morhetz/gruvbox'
@@ -27,8 +31,7 @@ return require('packer').startup(function(use)
     use 'folke/tokyonight.nvim'
     use 'shaunsingh/nord.nvim'
     use 'jacoborus/tender.vim'
-
-    use 'sheerun/vim-polyglot'
+    use 'jnurmine/Zenburn'
 
     -- Status line
     use {

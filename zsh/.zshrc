@@ -27,9 +27,31 @@ setopt HIST_SAVE_NO_DUPS
 bindkey -M vicmd 'k' history-beginning-search-backward
 bindkey -M vicmd 'j' history-beginning-search-forward
 
+# Directory stack
+DIRSTACKSIZE=8
+setopt AUTO_PUSHD
+setopt PUSHD_IGNORE_DUPS
+setopt PUSHD_SILENT
+
+show_stack() {
+    sel_dir=$(dirs -v | awk -F'\t' '{print $2}' | dmenu)
+    sel_dir="${sel_dir/#\~/$HOME}"
+    len=${#sel_dir}
+    BUFFER="${BUFFER:0:$CURSOR}${sel_dir}${BUFFER:$CURSOR}"
+    CURSOR+=$len
+}
+
+if command -v dmenu &> /dev/null; then
+    zle -N show_stack
+    bindkey '^j' show_stack
+fi
+
 # Vim mode
 bindkey -A viins main
 bindkey 'jk' vi-cmd-mode
+bindkey -s '^o' 'ranger\n'
+
+bindkey '^?' backward-delete-char # Fixing the mode-switching delete problem
 
 autoload -U select-bracketed
 autoload -U select-quoted

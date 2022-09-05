@@ -8,6 +8,9 @@ alias src='exec zsh'
 alias untar='tar -xzvf'
 alias fehopen='feh --scale-down --auto-zoom --image-bg black'
 alias xres='xrdb ~/.config/X11/.Xresources'
+alias startdb='sudo systemctl start mongodb'
+alias stopdb='sudo systemctl stop mongodb'
+alias fnmode='echo 1 | sudo tee /sys/module/hid_apple/parameters/fnmode'
 
 #
 # Setting some defaults
