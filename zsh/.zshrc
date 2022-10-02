@@ -66,12 +66,33 @@ for m in visual viopp; do
     done
 done
 
+# Change cursor shape for different vi modes.
+function zle-keymap-select {
+  if [[ ${KEYMAP} == vicmd ]] ||
+     [[ $1 = 'block' ]]; then
+    echo -ne '\e[1 q'
+
+  elif [[ ${KEYMAP} == main ]] ||
+       [[ ${KEYMAP} == viins ]] ||
+       [[ ${KEYMAP} = '' ]] ||
+       [[ $1 = 'beam' ]]; then
+    echo -ne '\e[5 q'
+  fi
+}
+zle -N zle-keymap-select
+
+_fix_cursor() {
+   echo -ne '\e[5 q'
+}
+
 # Nice prompt
 
 PATH_C=181
 
 autoload -U colors
 colors
+
+# PROMPT="%1~ %(?.%F{cyan}.%F{red})→ %F{reset_color}"
 
 PROMPT="%F{blue}[%F{reset_color}%n%F{magenta}@%F{reset_color}%m %F{magenta}%1~%F{blue}]%# %F{$reset_color}"
 
